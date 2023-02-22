@@ -1,0 +1,11 @@
+{
+    "require": {
+        "trycourier/courier": "^1.9",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}

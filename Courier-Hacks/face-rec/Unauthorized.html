@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Projet Web</title>
+  <link rel="stylesheet" type="text/css" href="dist/app.css">
+</head>
+<style>
+  div#question {
+    margin: auto;
+    padding: 10px;
+    width: 240px;
+    margin-top: 40px;
+    text-align: center;
+    border: solid 1px white;
+    border-radius: 10px;
+    visibility: hidden;
+}
+  body{
+  margin: auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Jost', sans-serif;
+  background: linear-gradient(to bottom, #000000, #612b63, #3b243e);
+}
+.main{
+  width: 500px;
+ margin-right: 5%;
+  align-self: center;
+  align-items: center;
+  background: red;
+  overflow: hidden;
+  height: 175px;
+  background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+  border-radius: 10px;
+
+  box-shadow: 5px 20px 50px #000;
+}
+
+.button {
+    width: 120px;
+    height: 12px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.button:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.button:active {
+    color: #000
+}
+
+.button:active:after {
+    background: transparent;
+}
+
+.button:hover:before {
+    opacity: 1;
+}
+
+.button:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+</style>
+
+
+        <div class="main">  
+
+ 
+  <h1 style ="color: red; text-align: center;"><br>Unauthorized Access !</h1>
+    <br>
+    <div style ="padding: 16px; margin: 0 auto; color: white; font-family: 'Jost', sans-serif;" class="button" id="mainBtn">Login / Sign up<i class="fa fa-play fa-2x"></i></div>
+
+  
+    </div>
+   <script>
+        document.getElementById("mainBtn").addEventListener("click", redirectFunction);
+        
+        function redirectFunction(){
+            window.location.href = "http://localhost/Courier-Hacks/Login/";
+         
+        }
+    </script>
+</body>
+
+</html>
