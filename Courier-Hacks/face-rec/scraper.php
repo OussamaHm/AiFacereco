@@ -21,7 +21,6 @@ header("location: http://localhost/Courier-Hacks/face-rec/Unauthorized.html");
  }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,9 +88,7 @@ header("location: http://localhost/Courier-Hacks/face-rec/Unauthorized.html");
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Services</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="<?php 
-                        echo "http://localhost/Courier-Hacks/face-rec/scra.php?tx=".$hashparameter;
-                                            ?>" class="dropdown-item">Ai Web Scraper</a>
+                            <a href="button.html" class="dropdown-item">Ai Web Scraper</a>
                             <a href="element.html" class="dropdown-item">Other tools comming soon</a>
                         </div>
                     </div>
@@ -204,96 +201,35 @@ header("location: http://localhost/Courier-Hacks/face-rec/Unauthorized.html");
             <!-- Navbar End -->
 
 
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today's Scraped websites:</p>
-                                <h6 class="mb-0">64</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Scraped websites:</p>
-                                <h6 class="mb-0">238</h6>
-                            </div>
-                        </div>
-                    </div>
-                  
-                </div>
-            </div>
-            <!-- Sale & Revenue End -->
+          
 
 
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Scraped websites:</h6>
-                        <a href="">Show All</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-white">
-                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Customer</th>
-                                  
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-01623</td>
-                                    <td>Yash Raj</td>
-                                    
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-01432</td>
-                                    <td>Oussama Hammach</td>
-                                  
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-04563</td>
-                                    <td>Yash Raj</td>
-                                  
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-02485</td>
-                                    <td>Oussama Hammach</td>
-                                   
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-09445</td>
-                                    <td>Said Mouskir</td>
-                                    
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                     <h6 >Results :</h6>
+                                 <br>
+                        <h6 >
+<?php
+require_once 'vendor/autoload.php';
+use OpenAI\Api;
+if(isset($_GET['search'])){
+$sr = $_GET['search'];
+$client = OpenAI::client('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');
+
+$result = $client->completions()->create([
+    'model' => 'text-davinci-003',
+    'prompt' => "please Summarize terms of service of $sr in 10 points, without losing the context, and only show information which may be relevant to the user (please add <br> after each end of line)",
+     'max_tokens' => 2000,
+]);
+
+echo $result['choices'][0]['text']; // an open-source, widely-used, server-side scripting language.
+}
+?>
+</h6>
+ <br>
+                    
+                   
                 </div>
             </div>
             <!-- Recent Sales End -->
